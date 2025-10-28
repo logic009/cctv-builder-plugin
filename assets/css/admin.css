@@ -1,0 +1,76 @@
+/* CCTV Builder Admin Styles */
+
+.cctv-builder-admin {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.cctv-builder-admin h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cctv-builder-admin h2 {
+    color: #667eea;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.cctv-builder-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cctv-builder-admin table th {
+    background: #667eea;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.cctv-builder-admin table td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cctv-builder-admin table tr:hover {
+    background: #f9f9f9;
+}
+
+.cctv-builder-admin .button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.cctv-builder-admin .button:hover {
+    background: #764ba2;
+}
+
+.cctv-builder-admin .button.secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.cctv-builder-admin .button.secondary:hover {
+    background: #e0e0e0;
+}
+
+.cctv-builder-admin .button.danger {
+    background: #e74c3c;
+}
+
+.cctv-builder-admin .button.danger:hover {
+    background: #c0392b;
+}

@@ -1,0 +1,320 @@
+/* CCTV Builder Styles */
+
+.cctv-builder-wrapper {
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+}
+
+.cctv-builder-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+}
+
+.cctv-builder-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.cctv-builder-header p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.cctv-builder-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .cctv-builder-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cctv-builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cctv-builder-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.cctv-builder-section h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.component-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.component-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.component-option:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.component-option input[type="radio"],
+.component-option input[type="checkbox"] {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.component-option-info {
+    flex: 1;
+}
+
+.component-option-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.component-option-description {
+    font-size: 13px;
+    color: #666;
+}
+
+.component-option-price {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 16px;
+    min-width: 80px;
+    text-align: right;
+}
+
+.component-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.component-quantity input {
+    width: 50px;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cctv-builder-summary {
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.cctv-builder-summary h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.selected-items-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.selected-item-name {
+    flex: 1;
+    color: #333;
+}
+
+.selected-item-quantity {
+    color: #666;
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+.selected-item-price {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 60px;
+    text-align: right;
+}
+
+.selected-item-remove {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 5px;
+    margin-left: 5px;
+}
+
+.selected-item-remove:hover {
+    color: #c0392b;
+}
+
+.no-items-message {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.cctv-builder-pricing {
+    margin-bottom: 20px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.price-row.total {
+    border-bottom: none;
+    border-top: 2px solid #667eea;
+    padding-top: 15px;
+    padding-bottom: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.price-row span:last-child {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.price-row.total span:last-child {
+    color: #764ba2;
+    font-size: 20px;
+}
+
+.cctv-builder-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.cctv-builder-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.cctv-builder-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.cctv-builder-btn.secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.cctv-builder-btn.secondary:hover {
+    background: #e0e0e0;
+}
+
+.cctv-builder-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Loading state */
+.cctv-builder-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #667eea;
+}
+
+.cctv-builder-loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 3px solid #f0f0f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error message */
+.cctv-builder-error {
+    background: #fee;
+    border: 1px solid #fcc;
+    color: #c33;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Success message */
+.cctv-builder-success {
+    background: #efe;
+    border: 1px solid #cfc;
+    color: #3c3;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
