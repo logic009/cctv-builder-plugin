@@ -57,6 +57,8 @@ class CCTV_Builder {
             'canonical_url'    => '',
             'robots_noindex'   => 0,
             'quote_slug'       => 'cctv-quote',
+            'head_verification'=> '',
+            'og_image'         => '',
         );
     }
 
@@ -88,7 +90,13 @@ class CCTV_Builder {
             'canonical_url'    => isset( $input['canonical_url'] ) ? esc_url_raw( $input['canonical_url'] ) : '',
             'robots_noindex'   => empty( $input['robots_noindex'] ) ? 0 : 1,
             'quote_slug'       => isset( $input['quote_slug'] ) ? sanitize_title( $input['quote_slug'] ) : $defaults['quote_slug'],
+            'head_verification'=> isset( $input['head_verification'] ) ? wp_kses_post( $input['head_verification'] ) : '',
+            'og_image'         => isset( $input['og_image'] ) ? esc_url_raw( $input['og_image'] ) : '',
         );
+
+        if ( empty( $sanitized['quote_slug'] ) ) {
+            $sanitized['quote_slug'] = $defaults['quote_slug'];
+        }
 
         if ( $existing['quote_slug'] !== $sanitized['quote_slug'] ) {
             flush_rewrite_rules();
@@ -233,6 +241,35 @@ class CCTV_Builder {
                             <p class="description">Customize the URL structure for saved CCTV quotes. Updating this will flush rewrite rules.</p>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="cctv_head_verification">Verification &amp; SEO Snippets</label>
+                        </th>
+                        <td>
+                            <textarea
+                                name="<?php echo esc_attr( self::OPTION_SEO_SETTINGS ); ?>[head_verification]"
+                                id="cctv_head_verification"
+                                class="large-text code"
+                                rows="4"
+                            ><?php echo esc_textarea( $seo_settings['head_verification'] ); ?></textarea>
+                            <p class="description">Paste meta tags or scripts from SEO tools (e.g., Search Console, analytics) to load in the page head when the builder is present.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="cctv_og_image">Open Graph Image</label>
+                        </th>
+                        <td>
+                            <input
+                                name="<?php echo esc_attr( self::OPTION_SEO_SETTINGS ); ?>[og_image]"
+                                type="url"
+                                id="cctv_og_image"
+                                class="regular-text"
+                                value="<?php echo esc_attr( $seo_settings['og_image'] ); ?>"
+                            />
+                            <p class="description">Optional social sharing image for builder pages (Open Graph <code>og:image</code>).</p>
+                        </td>
+                    </tr>
                 </table>
 
                 <?php submit_button(); ?>
@@ -315,6 +352,22 @@ class CCTV_Builder {
 
         if ( ! empty( $settings['robots_noindex'] ) ) {
             echo '<meta name="robots" content="noindex,nofollow" />';
+        }
+
+        if ( ! empty( $settings['meta_title'] ) ) {
+            echo '<meta property="og:title" content="' . esc_attr( $settings['meta_title'] ) . '" />';
+        }
+
+        if ( ! empty( $settings['meta_description'] ) ) {
+            echo '<meta property="og:description" content="' . esc_attr( $settings['meta_description'] ) . '" />';
+        }
+
+        if ( ! empty( $settings['og_image'] ) ) {
+            echo '<meta property="og:image" content="' . esc_url( $settings['og_image'] ) . '" />';
+        }
+
+        if ( ! empty( $settings['head_verification'] ) ) {
+            echo wp_kses_post( $settings['head_verification'] );
         }
     }
 }

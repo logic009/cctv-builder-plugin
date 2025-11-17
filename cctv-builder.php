@@ -40,6 +40,10 @@ register_activation_hook( __FILE__, 'cctv_builder_activate' );
 function cctv_builder_activate() {
     // Set up default components
     CCTV_Components::init_default_components();
+
+    // Ensure quote post type rewrite rules are registered immediately
+    cctv_register_quote_post_type();
+    flush_rewrite_rules();
 }
 
 // Deactivation hook
