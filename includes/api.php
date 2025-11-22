@@ -105,6 +105,9 @@ function cctv_ajax_save_quote() {
 add_action( 'init', 'cctv_register_quote_post_type' );
 
 function cctv_register_quote_post_type() {
+    $seo_settings = CCTV_Builder::get_seo_settings();
+    $quote_slug   = isset( $seo_settings['quote_slug'] ) ? $seo_settings['quote_slug'] : 'cctv-quote';
+
     register_post_type( 'cctv_quote', array(
         'labels' => array(
             'name' => 'CCTV Quotes',
@@ -114,5 +117,9 @@ function cctv_register_quote_post_type() {
         'show_ui' => true,
         'show_in_menu' => 'cctv-builder',
         'supports' => array( 'title', 'editor' ),
+        'rewrite' => array(
+            'slug'       => $quote_slug,
+            'with_front' => false,
+        ),
     ) );
 }
